@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api, getUserRole } from '../api';
 import MetricsDashboard from '../components/MetricsDashboard';
+import RoleGuidelines from '../components/RoleGuidelines';
 
 export default function Candidates() {
   const [rows, setRows] = useState([]);
@@ -286,6 +287,9 @@ Summary:
 
       {/* Learning & Quality Dashboard */}
       <MetricsDashboard />
+
+      {/* Role-Specific Operational Workflow Guidelines */}
+      <RoleGuidelines />
     </div>
   );
 }

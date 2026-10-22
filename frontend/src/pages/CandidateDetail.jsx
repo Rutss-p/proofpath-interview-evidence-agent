@@ -4,6 +4,7 @@ import { api, getUserRole } from '../api';
 import ClaimTable from '../components/ClaimTable';
 import QuestionsView from '../components/QuestionsView';
 import CodingQuestionsView from '../components/CodingQuestionsView';
+import RoleGuidelines from '../components/RoleGuidelines';
 
 export default function CandidateDetail() {
   const { id } = useParams();
@@ -245,6 +246,9 @@ export default function CandidateDetail() {
 
       {/* 3. Coding Questions with Multilingual Conversion Dropdown */}
       <CodingQuestionsView codingQuestions={data.coding_questions} />
+
+      {/* Role-Specific Operational Guidelines */}
+      <RoleGuidelines />
     </div>
   );
 }
