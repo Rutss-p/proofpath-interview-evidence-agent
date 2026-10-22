@@ -68,6 +68,16 @@ app.use('/api/probes', probesRouter);
 app.use('/api/coding', codingRouter);
 app.use('/coding', codingRouter);
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    name: 'ProofPath API',
+    status: 'operational',
+    health: '/api/health',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ ok: true, database: 'sqlite (sql.js / Wasm)', status: 'operational' });
