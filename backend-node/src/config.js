@@ -15,7 +15,7 @@ export const config = {
   consentSecret: process.env.CONSENT_SECRET || 'proofpath-consent-secret-key-super-secure-32-chars',
   llmBaseUrl: (process.env.LLM_BASE_URL || 'https://api.groq.com/openai/v1').replace(/\/+$/, ''),
   llmApiKey: process.env.LLM_API_KEY || 'mock',
-  llmModel: process.env.LLM_MODEL || 'llama-3.3-70b-versatile',
+  llmModel: process.env.LLM_MODEL || 'openai/gpt-oss-120b',
   githubToken: process.env.GITHUB_TOKEN || '',
   frontendOrigin: process.env.FRONTEND_ORIGIN || 'http://localhost:5173',
   sandboxMode: process.env.SANDBOX_MODE || 'local' // 'off' | 'docker' | 'local'
