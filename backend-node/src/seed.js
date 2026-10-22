@@ -27,6 +27,6 @@ export async function seedUsers() {
 }
 
 // Allow direct execution
-if (import.meta.url === `file:///${process.argv[1].replace(/\\/g, '/')}`) {
+if (process.argv[1] && import.meta.url === `file:///${process.argv[1].replace(/\\/g, '/')}`) {
   seedUsers().catch(console.error);
 }

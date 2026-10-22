@@ -1,4 +1,11 @@
-const BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+let rawBase = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+// Remove any trailing slash
+rawBase = rawBase.replace(/\/+$/, '');
+// Ensure it ends with /api if user didn't include it
+if (!rawBase.endsWith('/api')) {
+  rawBase += '/api';
+}
+const BASE = rawBase;
 
 export const getToken = () => localStorage.getItem('pp_token');
 export const setToken = (t) => (t ? localStorage.setItem('pp_token', t) : localStorage.removeItem('pp_token'));

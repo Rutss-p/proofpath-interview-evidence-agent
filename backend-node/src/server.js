@@ -60,11 +60,19 @@ const apiLimiter = rateLimit({
 });
 app.use('/api/', apiLimiter);
 
-// Register API routers
+// Register API routers (support both /api/* and root /* paths)
 app.use('/api/auth', authRouter);
+app.use('/auth', authRouter);
+
 app.use('/api/candidates', candidatesRouter);
+app.use('/candidates', candidatesRouter);
+
 app.use('/api/consent', consentRouter);
+app.use('/consent', consentRouter);
+
 app.use('/api/probes', probesRouter);
+app.use('/probes', probesRouter);
+
 app.use('/api/coding', codingRouter);
 app.use('/coding', codingRouter);
 
@@ -78,8 +86,8 @@ app.get('/', (req, res) => {
   });
 });
 
-// Health check endpoint
-app.get('/api/health', (req, res) => {
+// Health check endpoint (support both /api/health and /health)
+app.get(['/api/health', '/health'], (req, res) => {
   res.json({ ok: true, database: 'sqlite (sql.js / Wasm)', status: 'operational' });
 });
 
